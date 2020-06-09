@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GoPro | The world's most versatile action cameras</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+      @media screen and (min-device-width: 950px) {
+        .centered {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: auto;
+        }  
+        .centered2 {
+          margin-left: 5%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: auto;
+        } 
+        .title{
+          font-size: 300%;
+        }
+        .title2{
+          font-size: 30px;
+        }
+        .shopbtn{
+          margin-left: 35%;background-color: black;border-radius: 30px;width: 30%;
+        }
+        .learnbtn{
+          margin-left: 40%;
+        }
+
+        .img-hover-zoom {
+          height: 300px;
+          overflow: hidden; 
+        }
+
+        .img-hover-zoom img {
+          transition: transform ease;
+        }
+        .img-hover-zoom:hover img {
+          transform: scale(1.1);
+        }
+        .imageAnim{
+          margin-left: 20%;
+          margin-right: 30%;
+          height: 30%;
+          width: 30%;
+        }
+
+        .fade {
+          opacity: 1;
+        }
+        #bottommark {
+        }
+        .hidden {
+            position: absolute;
+            top: -9999999px;
+        }
+        #move { 
+        background-repeat: no-repeat;
+        position: absolute;
+        left:10%;
+        transform: rotate(2deg);
+        }
+        @keyframes fadeOut {
+         0%{
+            opacity: 1;
+         } 
+         100%{
+           opacity: 0;
+         }
+        }
+        @keyframes fadeIn {
+         0%{
+            opacity: 0;
+         } 
+         100%{
+           opacity: 1;
+         }
+        }
+
+      }
+      @media screen and (min-device-width: 100px) and (max-device-width: 950px) {
+        .centered {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: auto;
+        }  
+        .centered2 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: auto;
+        } 
+        .title{
+          font-size: 100%;
+        }
+        .shopbtn{
+          margin-left: 30%;background-color: black;border-radius: 30px;width: 50%;font-size: 10px;
+        }
+        .learnbtn{
+          margin-left: 20%;
+          font-size: 14px;
+        }
+        .imageAnim{
+          margin-left: 10%;
+          margin-right: 30%;
+          height: 80%;
+          width: 80%;
+        }
+      }
+
+      .float{
+        position:fixed;
+        bottom:40px;
+        right:40px;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+      }
+
+      .my-float{
+        margin-top:22px;
+      }
+      
+    </style>
+</head>
+<body style="font-family:ProximaNova, Helvetica, Arial, sans-serif; ">
+    <!--Nav Bar Responsive-->
+    <div class="sticky-top"  >
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(66, 65, 65);">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="fa fa-bars text-white" style="font-size: 25px;" aria-hidden="true"></i></span>
+            </button>
+            <a class="navbar-brand" href="#">      <img style="padding: 2%;margin-left: 12%;" src="./Images/logo1.png" width="110" height="40" alt="" loading="lazy"></a>
+            <div style="font-size: 14px;line-height: 19px;" class="collapse navbar-collapse justify-content-center" id="navbarNav">
+              <ul class="navbar-nav font-weight-bold text-uppercase">
+                <li class="nav-item active ">
+                  <a class="hb nav-link ml-4 camerah" onMouseOver="this.style.color='#03BFFE';" onMouseOut="this.style.color='white';" style="color: white;" href="#">cameras</a>
+                </li>
+                <li class="nav-item">
+                  <a class="hb nav-link ml-4 accessoriesh" onMouseOver="this.style.color='#03BFFE';" onMouseOut="this.style.color='white';" style="color: white;" href="#">accessories</a>
+                </li>
+                <li class="nav-item">
+                  <a class="hb nav-link ml-4 gph" onMouseOver="this.style.color='#03BFFE';" onMouseOut="this.style.color='white';" style="color: white;" href="#">GoPro plus</a>
+                </li>
+                <li class="nav-item">
+                  <a class="hb nav-link ml-4" onMouseOver="this.style.color='#03BFFE';" onMouseOut="this.style.color='white';" style="color: white;" href="#">Awards</a>
+                </li>
+              </ul>
+            </div>
+            <ul style="letter-spacing: 10px;font-size: 20px;margin-top: 1%;margin-right:4% ;" class="text-white">
+                <li style="list-style-type: none;display: inline;"><i onMouseOver="this.style.cursor='pointer';" class="fa fa-search" data-html="true" data-content="search something"  data-toggle="popover" data-placement="bottom"></i></li>
+                <li style="list-style-type: none;display: inline;"><i onMouseOver="this.style.cursor='pointer';" class="fa fa-headphones" aria-hidden="true"></i></li>
+                <li style="list-style-type: none;display: inline;"><i onMouseOver="this.style.cursor='pointer';" class="fa fa-globe" aria-hidden="true"></i></li>
+                <li style="list-style-type: none;display: inline;"><i onMouseOver="this.style.cursor='pointer';" class="fa fa-user-o" aria-hidden="true"></i></li>
+                <li style="list-style-type: none;display: inline;"><i onMouseOver="this.style.cursor='pointer';" class="fa fa-shopping-cart" aria-hidden="true"></i></li>
+            </ul>
+        </nav>
+
+        <!--Text Corousel-->
+        <div id="carouselExampleControls" style="background-color: #03BFFE;font-size: 12px;" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner text-white font-weight-bold">
+              <div class="carousel-item active">
+                <p class="h-4 text-center mt-2 mb-1">Save big with the <a href="" style="text-decoration: underline;" class="text-white">HERO8 Black Bundle.</a></p>
+              </div>
+              <div class="carousel-item">
+                <p class="h-4 text-center mt-2 mb-1"><a href="" style="text-decoration: underline;" class="text-white">Trade up</a> + save $100 on MAX.</p>
+              </div>
+              <div class="carousel-item">
+                <p class="h-4 text-center mt-2 mb-1"><a href="" style="text-decoration: underline;" class="text-white">Trade up</a> + save $100 on HERO8 Black.</p>
+              </div>
+              <div class="carousel-item">
+                <p class="h-4 text-center mt-2 mb-1">Bonus SD card with every camera. <a href="" style="text-decoration: underline;" class="text-white">Terms Apply</a></p>
+              </div>
+            </div>
+            <a class="carousel-control-prev text-white" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span aria-hidden="true"><i class="fa fa-angle-left text-white"></i></span>
+            </a>
+            <a class="carousel-control-next text-white" href="#carouselExampleControls" role="button" data-slide="next">
+              <span aria-hidden="true"><i class="fa fa-angle-right text-white"></i></span>
+            </a>
+          </div>
+          <div style="background-color: #666666;font-size: 12px;margin-bottom: 0;" class="alert alert-dismissible fade show text-center text-white font-weight-bold" role="alert">
+            <strong>Looks like you're in India.<a href="" style="text-decoration: underline;" class="text-white"> Choose the country you want to shop in.</a></strong>
+            <i style="font-size: 12px;" class="close fa fa-close mt-1 text-white" data-dismiss="alert" aria-label="Close"></i>
+          </div>
+        <div id="gp-camera" style="display:none;background-color: white;margin-top: 0;padding: 3%;text-align: center;">
+          <ul class="mt-3">
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><i class="fa text-dark fa-camera" style="font-size: 30px;"></i> HERO8 BLACK</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><i class="fa text-dark fa-camera-retro" style="font-size: 30px;"></i> MAX</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><i class="fa text-dark fa-camera" style="font-size: 30px;"></i> HERO7 BLACK</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><i class="fa text-dark fa-camera-retro" style="font-size: 30px;"></i> HERO7 SILVER</a></li>
+          </ul>
+          <ul style="margin-top: 3%;">
+            <li style="display: inline-block;margin-left:5%;"><a href=""  class="text-decoration-none font-weight-bold" style="color: #3BFF;" >COMPARE CAMERAS</a></li>
+            <li style="display: inline-block;margin-left:5%;"><a href=""  class="text-decoration-none font-weight-bold" style="color: #3BFF;" >VIEW ALL CAMERAS</a></li>
+          </ul>
+        </div>
+        <div id="gp-accessories" style="display: none;background-color: white;margin-top: 0;padding: 3%;text-align: center;">
+          <ul >
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"> MOUNTS</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"> MODS</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"></i> BATTERIES</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"> BAGS + CASES</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"></i> PROTECTION</a></li>
+          </ul>
+          <ul style="margin-top: 3%;">
+            <li style="display: inline-block;margin-left:5%;"><a href=""  class="text-decoration-none font-weight-bold" style="color: #3BFF;" >VIEW ALL CAMERAS</a></li>
+          </ul>
+        </div>
+        <div id="gp-plus" style="display: none;background-color: white;margin-top: 0;padding: 1%;text-align: center;">
+          <ul >
+            <li style="display: inline-block;margin-left:5%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><img style="border-radius: 5px;" src="./Images/gpapp.png"  height=50 width=50 alt=""><br><br> GOPRO APP</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><img style="border-radius: 5px;" src="./Images/gplayer.png" height=50 width=50 alt=""><br><br> GOPRO PLAYER</a></li>
+            <li style="display: inline-block;margin-left:8%;"><a href="" style="color: #333333;" class="text-decoration-none" onMouseOver="this.style.color='#03BFFE'" onMouseOut="this.style.color='black'"><img style="border-radius: 5px;" src="./Images/me.png" height=50 width=50 alt=""><br><br> MAX EXPORTER</a></li>
+          </ul>
+        </div>
+    </div>
+    <div class="row">
+      <img style="height:auto;width: 100%;position:sticky;" src="./Images/bg3.jpg" alt="">
+      <div class="centered">
+        <p class="font-weight-bold title" style="color: black;">
+          $100 off HERO8 Black.
+        </p>
+        <p class="text-center">Inclludes Free SD Cards</p>
+        <button class="btn text-white shopbtn font-weight-bold" >shop now</button>
+      </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-6 col-sm-6 img-hover-zoom mt-2">
+            <img style="height:auto;width: 100%;"  src="./Images/bg2.jpg" alt="">
+            <div class="centered2">
+              <p class="font-weight-bold text-white title2 ">
+                MEET MAX.
+              </p>
+              <p class=" text-white">Maximum. Wow.</p>
+              <button class="btn text-white text-center font-weight-bold" style="background-color: transparent;
+              border:2px solid white;border-radius: 24px;">Learn More</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 img-hover-zoom mt-2">
+            <img  style="height:auto;width: 100%;"  src="./Images/Bg1.jpg" alt="">
+            <div class="centered2">
+              <p class="font-weight-bold " style="color: black;">
+                <img src="./Images/gplus.png" style="height:auto;width: 100%;"  alt="">
+              </p>
+              <p class="text-center">Unlimited cloud, discounts + more.</p>
+              <button class="btn learnbtn font-weight-bold" style="background-color: transparent;
+              border:2px solid rgb(165, 164, 164);color:black;border-radius: 24px;" >Learn More</button>
+            </div>
+        </div>
+    </div>
+
+    <!--Box Divider-->
+    <div class="row justify-content-center text-center mt-2 mb-2 ">
+      <div style="border: 1px solid #666666;border-radius: 3px;" class="col-md-3 col-sm-2 col-xs-2 p-4">
+        <a href="" class="text-decoration-none">
+          <img height=52 weight=50  src="./Images/barImages/img3.png" alt=""><br><br>
+          <h6 style="color: #666666;font-weight:bold;">Cameras</h6>
+        </a>
+      </div>
+      <div style="border: 1px solid #666666 ;border-radius: 3px;" class="col-md-3 col-sm-2 col-xs-2 p-4">
+          <a href="" class="text-decoration-none"><img height=52 weight=50  src="./Images/barImages/img1.png" alt=""><br><br>
+          <h6 style="color: #666666;font-weight:bold;">Accessories</h6>
+          </a>       
+         </div>
+      <div style="border: 1px solid #666666 ;border-radius: 3px;" class="col-md-3 col-sm-2 col-xs-2 p-4">
+          <a href="" class="text-decoration-none"><img height=52 weight=50  src="./Images/barImages/img2.png" alt=""><br><br>
+          <h6 style="color: #666666;font-weight:bold;">Apps</h6>
+          </a>       
+         </div>
+      <div style="border: 1px solid #666666 ;border-radius: 3px;" class="col-md-3 col-sm-2 col-xs-2 p-4">
+        <a href="" class="text-decoration-none"><img  height=52 weight=50 src="./Images/barImages/img4.png" alt=""><br><br>
+        <h6 style="color: #666666;font-weight:bold;">Go PLUS</h6>
+        </a>      
+      </div>
+    </div>
+    <!-- <img src="./Images/CammeraAnimation/movement/2.png" alt="" class="hidden">
+    <img src="./Images/CammeraAnimation/movement/3.png" alt="" class="hidden">
+    <img src="./Images/CammeraAnimation/movement/4.png" alt="" class="hidden">
+    <img src="./Images/CammeraAnimation/movement/5.png" alt="" class="hidden"> -->
+    <!--Image Animation-->
+    <div class="mt-4">
+      <img class="imageAnim f1" style="position: absolute;top:180%;right: 1%;width: 50%;height: 60%;" src="./Images/CammeraAnimation/img1.jpg" alt="">
+      <h1 class="f1" style="position: absolute;top:180%;text-align: center;left: 35%;font-weight: bolder;">World's Most <br> versatile camera</h1>
+      <img class="imageAnim" id="move"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+      <img class="imageAnim f1" style="position: absolute;top:200%;right: 20%;width: 20%;height: 30%;" src="./Images/CammeraAnimation/img3.png" alt="">
+      <img class="imageAnim f1" style="position: absolute;top:180%;right: 1%;width: 50%;height: 60%;" src="./Images/CammeraAnimation/img2.png" alt="">
+    </div>
+    <div>
+    <!-- <div id="bottommark" style="margin-top: 200%;"></div> -->
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+    <img class="imageAnim" style="visibility: hidden;"  src="./Images/CammeraAnimation/movement/1.png" alt="">
+  </div>
+    
+  <div class="container" style="margin-top:80% ;">
+    <h1 class="a0" style="position: relative;visibility: hidden;;font-weight: bolder;">Accessories to nail <br> The shot</h1>
+    <img class="a1" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/1.png" height=239 width=230 alt="">
+    <img class="a2" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/2.png" height=725 width=505 alt="">
+    <img class="a3" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/3.png" height=503 width=446 alt="">
+    <img class="a6" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/6.png" height=503 width=446 alt="">
+    <img class="a4" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/4.png" height=332 width=321 alt="">
+    <img class="a5" style="position: relative;visibility: hidden;" src="./Images/CammeraAnimation/Accessories/5.png" height=387 width=371 alt="">
+  </div>
+  <div>
+    <h1 class="a7" style="position: relative;visibility: hidden;;font-weight: bolder;">The app for <br> Awesome edits</h1>
+    <img class="a8" style="position: relative;visibility: hidden;" height=500 width=400 src="./Images/CammeraAnimation/Accessories/phone.png" alt="">
+  </div>
+
+  <div>
+    <h1 class="a9" style="position: relative;visibility: hidden;;font-weight: bolder;">So you can <br> get social.</h1>
+    <img class="a10" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/1.png" alt="">
+    <img class="a11" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/2.png" alt="">
+    <img class="a12" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/3.png" alt="">
+    <img class="a13" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/4.png" alt="">
+    <img class="a14" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/6.png" alt="">
+    <img class="a15" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/7.png" alt="">
+    <img class="a16" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/8.png" alt="">
+    <img class="a17" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/9.png" alt="">
+
+  </div>
+  <div style="margin-left:25% ;margin-right: 25%;" class="justyfy-content-center">
+    <img src="./Images/plus-logo.svg" style="margin-left: 25%;margin-top: 20%;;" height=253 width=300 alt="">
+    <h1 style="text-align: center;font-weight: bolder;color: white;">Which one's <br> for you?</h1><br>
+    <img src="./Images/final2.png" height=354 width=288 alt="">
+    <img src="./Images/final1.png" height=348 weight=387 alt="">
+    <button class="btn" style="width:25%;border-radius:25px;background-color: #03BFFE;color: white;font-weight: bold;margin-left: 30%;margin-right: 30%;margin-top:3%;">shop now</button>
+  </div>
+  <footer class="footer text-center" style="margin-top: 12%;font-size: 12px;padding:10%;color:white;font-weight: bold;">
+    <a href="#" class="float" >
+      <img src="./Images/btop.svg" style="opacity: 0.5;" class="myfloat" alt="">
+      </a>
+    <p>
+      1GoPro PLUS cloud storage does not support content captured with GoPro Fusion. Exchange up to two cameras per year for the same model
+(Fusion and HERO5 or later). Fees apply. Damage replacement available in <span style="color:#03BFFE">these countries</span> only.
+    </p>
+  </footer>
+          
+</body>
+<script>
+  $('.camerah').mouseover(function(){
+    $('#gp-camera').css('display','block');
+  });
+  $('.camerah').mouseout(function(){
+    $('#gp-camera').css('display','none');
+  });
+  
+  $('.accessoriesh').mouseover(function(){
+    $('#gp-accessories').css('display','block');
+  });
+  $('.accessoriesh').mouseout(function(){
+    $('#gp-accessories').css('display','none');
+  });
+
+  $('.gph').mouseover(function(){
+    $('#gp-plus').css('display','block');
+  });
+  $('.gph').mouseout(function(){
+    $('#gp-plus').css('display','none');
+  });
+
+  $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+var i=0;
+var k=2;
+var lastScroll=0;
+$(window).scroll(function(){
+      var hT = $('#move').offset().top,
+      hH = $('#move').outerHeight(),
+      wH = $(window).height(),
+      wS = $(this).scrollTop();
+
+      var eT = $('footer').offset().top,
+      eH = $('footer').outerHeight();
+      console.log(wS,hT+hH-wH);
+
+  if(wS>8000){
+    $('#move').css({'position':'absolute','top': '1250px','left':'10%'});
+    i=0;
+    k=28;
+  }
+  else{
+  if(lastScroll<wS){
+  if (wS > 1045 ){
+    $('.f1').css('animation','fadeOut ease 5s');
+    $('#move').css({'position':'fixed','top':'200px'});
+    i++;
+    //console.log(i);
+    if(i==10){
+      $("#move").attr("src", "./Images/CammeraAnimation/movement/"+k+".png");
+      if(k<28){
+        k+=1;
+      }
+      //console.log(k);
+      i=0;
+    }
+  }
+  else{
+    $('#move').css({'position':'absolute','top':'1250px'});
+    $("#move").attr("src", "./Images/CammeraAnimation/movement/"+1+".png");
+
+  }
+  }
+  else{
+
+    if (wS > 1045 ){
+    $('#move').css({'position':'fixed','top':'200px'});
+    i++;
+    //console.log(i);
+    if(i==10){
+      $("#move").attr("src", "./Images/CammeraAnimation/movement/"+k+".png");
+      if(k>1){
+        k--;
+      }
+      //console.log(k);
+      i=0;
+    }
+  }
+  else{
+    $('#move').css({'position':'absolute','top':'1250px'});
+    $("#move").attr("src", "./Images/CammeraAnimation/movement/"+1+".png");
+  }
+
+  }
+  lastScroll=wS;
+
+  if(k>14 && k<21 && wS<5000){
+    $('.a0').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','left':'500px','top':'100px'});
+    $('.a1').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','left':'-60px','top':'50px'});
+    $('.a2').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'90px','left':'-200px','transform': 'rotate(20deg)'});
+    $('.a3').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'400px'});
+    $('.a6').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'200px','left':'720px','transform': 'rotate(-10deg)'});
+    $('.a4').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'380px','left':'680px',});
+    $('.a5').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'50px','left':'1000px'});
+  }
+  else if(k<28 && k>20 && wS>2000){
+    $('.a0').css({'animation':'fadeOut ease 2s'});
+    $('.a1').css({'animation':'fadeOut ease 2s'});
+    $('.a2').css({'animation':'fadeOut ease 2s'});
+    $('.a3').css({'animation':'fadeOut ease 2s'});
+    $('.a6').css({'animation':'fadeOut ease 2s'});
+    $('.a4').css({'animation':'fadeOut ease 2s'});
+    $('.a5').css({'animation':'fadeOut ease 2s'});
+  }
+
+  if(wS>4000 && wS<6000 && k>23){
+    $('.a0').css({'visibility':'hidden'});
+    $('.a1').css({'visibility':'hidden'});
+    $('.a2').css({'visibility':'hidden'});
+    $('.a3').css({'visibility':'hidden'});
+    $('.a6').css({'visibility':'hidden'});
+    $('.a4').css({'visibility':'hidden'});
+    $('.a5').css({'visibility':'hidden'});
+    $('.a7').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','left':'500px','top':'100px'});
+    $('.a8').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'250px','left':'600px'});
+  }
+  else{
+    $('.a7').css({'animation':'fadeOut ease 2s'});
+    $('.a8').css({'animation':'fadeOut ease 2s'});
+    $('.a7').css({'visibility':'hidden'});
+    $('.a8').css({'visibility':'hidden'});
+  }
+
+
+  if(wS>6000 && wS<6800){
+    $('.a9').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','left':'500px','top':'100px'});
+    $('.a10').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','left':'20px','top':'50px'});
+    $('.a11').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'90px','left':'-200px',});
+    $('.a12').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'350px','left':'10px'});
+    $('.a13').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'300px','left':'650px',});
+    $('.a14').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'380px','left':'400px',});
+    $('.a15').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'20px','left':'800px',});
+    $('.a16').css({'visibility':'visible','animation':'fadeIn ease 2s','position':'fixed','top':'350px','left':'1100px',});
+  }
+  else{
+    $('.a9').css({'animation':'fadeOut ease 2s'});
+    $('.a10').css({'animation':'fadeOut ease 2s'});
+    $('.a11').css({'animation':'fadeOut ease 2s'});
+    $('.a12').css({'animation':'fadeOut ease 2s'});
+    $('.a13').css({'animation':'fadeOut ease 2s'});
+    $('.a14').css({'animation':'fadeOut ease 2s'});
+    $('.a15').css({'animation':'fadeOut ease 2s'});
+    $('.a16').css({'animation':'fadeOut ease 2s'});
+    $('.a9').css({'visibility':'hidden'});
+    $('.a10').css({'visibility':'hidden'});
+    $('.a11').css({'visibility':'hidden'});
+    $('.a12').css({'visibility':'hidden'});
+    $('.a13').css({'visibility':'hidden'});
+    $('.a14').css({'visibility':'hidden'});
+    $('.a15').css({'visibility':'hidden'});
+    $('.a16').css({'visibility':'hidden'});
+  }
+
+  }
+
+  if(wS>7000){
+    console.log('ji');
+    $('body').css({'background-image':'url("./Images/bg1.jpg")','height': '100%','background-position': 'center',
+      'background-repeat': 'no-repeat',
+      'background-size': 'cover'});
+  }
+
+});
+
+setTimeout(function(){ 
+               $('.close').click(); 
+            }, 3000);
+
+
+// $(document).ready(function(){
+//     var offset2 = $(document).height();
+//    var lineHF = offset2 - $("#bottommark").position().top;
+//     $(window).scroll(function(){
+//             var hT = $('#move').offset().top,
+//             hH = $('#move').outerHeight(),
+//             wH = $(window).height(),
+//             wS = $(this).scrollTop();
+//         if (wS > (hT+hH-wH)){
+//           var offset1 = $(document).height();
+//         var offset = $(window).scrollTop();
+//         var lineH = offset1 - $("#bottommark").position().top - offset;
+//         var lineHpart = lineHF/5;
+        
+//         $("span").html(lineH);
+            
+//             if (lineH > lineHpart*4) {
+//                 $("#move").attr("src", "./Images/CammeraAnimation/movement/2.png");
+//             }
+//             if ((lineH < lineHpart*4) && (lineH > lineHpart*3)) {
+//                 $("#move").attr("src", "./Images/CammeraAnimation/movement/3.png");
+//             }
+//             if ((lineH < lineHpart*3) && (lineH > lineHpart*2)) {
+//                 $("#move").attr("src", "./Images/CammeraAnimation/movement/4.png");
+//             }
+//             if (lineH < lineHpart*2 && lineH > lineHpart*1) {
+//                 $("#move").attr("src", "./Images/CammeraAnimation/movement/5.png");
+//             }
+//             if (lineH < lineHpart) {
+//                 $("#move").attr("src", "./Images/CammeraAnimation/movement/6.png");
+//             }
+            
+//         }
+
+//         });
+//     });
+
+
+// const $element = $('.imageAnim');
+// const imagePath = './Images/CammeraAnimation/movement/';
+// const totalFrames = 28;
+// const animationDuration =10000;
+// const timePerFrame = animationDuration / totalFrames;
+// let timeWhenLastUpdate;
+// let timeFromLastUpdate;
+// let frameNumber = 1;
+
+// var pos=50;
+
+// function step(startTime) {
+//   if (!timeWhenLastUpdate) timeWhenLastUpdate = startTime;
+
+//   timeFromLastUpdate = startTime - timeWhenLastUpdate;
+
+//   if (timeFromLastUpdate > timePerFrame) {
+//     $element.attr('src', imagePath + `${frameNumber}.webp`);
+//     timeWhenLastUpdate = startTime;
+//     console.log(pos,frameNumber);
+//     if(pos<1500 ){
+//     if(frameNumber<28){
+//     if (frameNumber >= totalFrames) {
+//       frameNumber = 1;
+//     } else {
+//        frameNumber = frameNumber + 1;
+//     }        
+//     }
+//     else{
+//       frameNumber=28;
+//     }
+//     }
+//     else{
+//       if(frameNumber>1){
+//         frameNumber-=1;
+//       }
+//       else{
+//         frameNumber=1;
+//       }
+//     }
+//   }
+//   //requestAnimationFrame(step);
+// }
+// $(window).scroll(() => {
+//   console.log("hi");
+//   var hT = $('.movement').offset().top,
+//        hH = $('.movement').outerHeight(),
+//        wH = $(window).height(),
+//        wS = $(this).scrollTop();
+//    if (wS > (hT+hH-wH)){
+//     requestAnimationFrame(step);
+//     $('.imageAnim').css('top',pos+'px');
+//     pos+=2;
+//    }
+// });
+
+
+
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</html>
