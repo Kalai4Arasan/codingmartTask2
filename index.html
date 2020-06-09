@@ -345,6 +345,7 @@
     <img class="a17" height=500 width=400 style="position: relative;visibility: hidden;" src="./Images/social/9.png" alt="">
 
   </div>
+  <div class="finalbg">
   <div style="margin-left:25% ;margin-right: 25%;" class="justyfy-content-center">
     <img src="./Images/plus-logo.svg" style="margin-left: 25%;margin-top: 20%;;" height=253 width=300 alt="">
     <h1 style="text-align: center;font-weight: bolder;color: white;">Which one's <br> for you?</h1><br>
@@ -361,6 +362,7 @@
 (Fusion and HERO5 or later). Fees apply. Damage replacement available in <span style="color:#03BFFE">these countries</span> only.
     </p>
   </footer>
+</div>
           
 </body>
 <script>
@@ -469,6 +471,13 @@ $(window).scroll(function(){
     $('.a6').css({'animation':'fadeOut ease 2s'});
     $('.a4').css({'animation':'fadeOut ease 2s'});
     $('.a5').css({'animation':'fadeOut ease 2s'});
+    $('.a0').css({'visibility':'hidden'});
+    $('.a1').css({'visibility':'hidden'});
+    $('.a2').css({'visibility':'hidden'});
+    $('.a3').css({'visibility':'hidden'});
+    $('.a6').css({'visibility':'hidden'});
+    $('.a4').css({'visibility':'hidden'});
+    $('.a5').css({'visibility':'hidden'});
   }
 
   if(wS>4000 && wS<6000 && k>23){
@@ -523,9 +532,7 @@ $(window).scroll(function(){
 
   if(wS>7000){
     console.log('ji');
-    $('body').css({'background-image':'url("./Images/bg1.jpg")','height': '100%','background-position': 'center',
-      'background-repeat': 'no-repeat',
-      'background-size': 'cover'});
+    $('.finalbg').css({'background-color':'#FF631C'});
   }
 
 });
@@ -533,7 +540,9 @@ $(window).scroll(function(){
 setTimeout(function(){ 
                $('.close').click(); 
             }, 5000);
-
+$('.myfloat').click(function(){
+  $("html, body").animate({scrollTop: 0}, 1000);
+});
 
 // $(document).ready(function(){
 //     var offset2 = $(document).height();
